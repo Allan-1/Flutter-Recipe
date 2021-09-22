@@ -19,8 +19,8 @@ class CategoryScreen extends StatelessWidget {
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
       ),
-      itemBuilder: (context, index) => ChangeNotifierProvider(
-        create: (ctx) => categoryItem[index],
+      itemBuilder: (context, index) => ChangeNotifierProvider.value(
+        value: categoryItem[index],
         child: Categories(),
       ),
       itemCount: categoryItem.length,
