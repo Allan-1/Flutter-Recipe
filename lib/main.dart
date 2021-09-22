@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:myrecipes/provider/provider.dart';
 import 'package:myrecipes/screens/category_items_screen.dart';
 import 'package:myrecipes/screens/recipe_screen.dart';
 import 'package:myrecipes/screens/settings_screen.dart';
 import 'package:myrecipes/screens/tabs.dart';
+import 'package:provider/provider.dart';
 
 void main(){
   runApp(MyApp());
@@ -11,7 +13,9 @@ void main(){
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider(
+      create: (ctx) => CategoryProvider(),
+      child:  MaterialApp(
       title: 'recipe',
       theme: ThemeData(
         primarySwatch: Colors.orange,
@@ -34,7 +38,7 @@ class MyApp extends StatelessWidget {
         RecipeScreen.recipeRoute: (ctx) => RecipeScreen(),
         Setting.settingRoute: (ctx) => Setting()
       },
-    );
+    ),);
   }
 }
 

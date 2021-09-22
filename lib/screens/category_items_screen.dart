@@ -15,6 +15,7 @@ class CategoryItems extends StatelessWidget {
     final titleArgs = routeArgs['title'];
     final idArgs = routeArgs['id'];
 
+    // final meal = Provider.of<MealProvider>(context).getMealCategory(idArgs!);
     final categoryMeals = Meal_Data.where((meal) => meal.categories.contains(idArgs)).toList();
 
     return Scaffold(
