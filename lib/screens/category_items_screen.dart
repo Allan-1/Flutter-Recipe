@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:myrecipes/data/data.dart';
+import 'package:myrecipes/provider/meal_provider.dart';
 import 'package:myrecipes/widgets/mealitem.dart';
+import 'package:provider/provider.dart';
 
 
 class CategoryItems extends StatelessWidget {
@@ -15,21 +16,20 @@ class CategoryItems extends StatelessWidget {
     final titleArgs = routeArgs['title'];
     final idArgs = routeArgs['id'];
 
-    // final meal = Provider.of<MealProvider>(context).getMealCategory(idArgs!);
-    final categoryMeals = Meal_Data.where((meal) => meal.categories.contains(idArgs)).toList();
+   final meal = Provider.of<MealProvider>(context).getMealCategory(idArgs!);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(titleArgs!),
       ),
       body: ListView.builder(itemBuilder: (ctx, index){
-        return MealItem(id: categoryMeals[index].id,
-            imageUrl: categoryMeals[index].imageUrl,
-            title: categoryMeals[index].title,
-            affordability: categoryMeals[index].affordability,
-            complexity: categoryMeals[index].complexity,
-            duration: categoryMeals[index].duration);
-      }, itemCount: categoryMeals.length,)
+        return MealItem(id: meal[index].id,
+            imageUrl: meal[index].imageUrl,
+            title: meal[index].title,
+            affordability: meal[index].affordability,
+            complexity: meal[index].complexity,
+            duration: meal[index].duration);
+      }, itemCount: meal.length,)
     );
   }
 }
