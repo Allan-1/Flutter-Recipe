@@ -3,7 +3,6 @@ import 'package:myrecipes/provider/meal_provider.dart';
 import 'package:myrecipes/widgets/mealitem.dart';
 import 'package:provider/provider.dart';
 
-
 class CategoryItems extends StatelessWidget {
   const CategoryItems({Key? key}) : super(key: key);
 
@@ -16,20 +15,23 @@ class CategoryItems extends StatelessWidget {
     final titleArgs = routeArgs['title'];
     final idArgs = routeArgs['id'];
 
-   final meal = Provider.of<MealProvider>(context).getMealCategory(idArgs!);
+    final meal = Provider.of<MealProvider>(context).getMealCategory(idArgs!);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(titleArgs!),
-      ),
-      body: ListView.builder(itemBuilder: (ctx, index){
-        return MealItem(id: meal[index].id,
-            imageUrl: meal[index].imageUrl,
-            title: meal[index].title,
-            affordability: meal[index].affordability,
-            complexity: meal[index].complexity,
-            duration: meal[index].duration);
-      }, itemCount: meal.length,)
-    );
+        appBar: AppBar(
+          title: Text(titleArgs!),
+        ),
+        body: ListView.builder(
+          itemBuilder: (ctx, index) {
+            return MealItem(
+                id: meal[index].id,
+                imageUrl: meal[index].imageUrl,
+                title: meal[index].title,
+                affordability: meal[index].affordability,
+                complexity: meal[index].complexity,
+                duration: meal[index].duration);
+          },
+          itemCount: meal.length,
+        ));
   }
 }

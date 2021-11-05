@@ -7,10 +7,7 @@ class Setting extends StatefulWidget {
   static const settingRoute = '/settings';
 
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _SettingState();
-  }
+  State<StatefulWidget> createState() => _SettingState();
 }
 
 class _SettingState extends State<Setting> {
@@ -39,7 +36,7 @@ class _SettingState extends State<Setting> {
                 child: ListView(
               children: [
                 SwitchListTile(
-                  tileColor: Colors.blueGrey,
+                    tileColor: Colors.blueGrey,
                     value: _isglutten,
                     title: Text(
                       'Gluten free',
@@ -54,7 +51,9 @@ class _SettingState extends State<Setting> {
                         _isglutten = newValues;
                       });
                     }),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 SwitchListTile(
                     tileColor: Colors.blueGrey,
                     value: _isvegan,
@@ -71,7 +70,9 @@ class _SettingState extends State<Setting> {
                         _isvegan = newValues;
                       });
                     }),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 SwitchListTile(
                     tileColor: Colors.blueGrey,
                     value: _isvegetarian,
@@ -88,7 +89,9 @@ class _SettingState extends State<Setting> {
                         _isvegetarian = newValues;
                       });
                     }),
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 SwitchListTile(
                     tileColor: Colors.blueGrey,
                     value: _isLactose,

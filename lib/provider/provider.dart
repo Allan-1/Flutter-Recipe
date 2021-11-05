@@ -68,4 +68,14 @@ class CategoryProvider with ChangeNotifier {
   List<Category> get categorydata {
     return [..._categorydata];
   }
+
+  // Future<void> getCategories() async {
+  //   const url = "www.themealdb.com/api/json/v1/1/filter.php?c=Seafood";
+  //   try{
+  //     final response = await http.get(Uri.parse(url));
+  //     print(response);
+  //   }catch(error){
+  //     throw error;
+  //   }
+  // }
 }

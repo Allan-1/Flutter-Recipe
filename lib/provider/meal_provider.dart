@@ -373,12 +373,11 @@ class MealProvider with ChangeNotifier {
     return mealItem.where((meal) => meal.categories.contains(id)).toList();
   }
 
-  Meal getMealRecipe(id){
+  Meal getMealRecipe(id) {
     return mealItem.firstWhere((meal) => meal.id == id);
   }
 
-  List<Meal> get favouriteMeal{
+  List<Meal> get favouriteMeal {
     return _mealData.where((meal) => meal.isFavourite).toList();
   }
-
 }
